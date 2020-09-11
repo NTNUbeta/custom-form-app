@@ -11,20 +11,7 @@ class ExtraInfo(models.Model):
     The form that wraps this model is in the forms.py file.
     """
     user = models.OneToOneField(USER_MODEL, null=True, on_delete=models.CASCADE)
-    FAVORITE_EDITOR = (
-        ('vim', 'Vim'),
-        ('emacs', 'Emacs'),
-        ('np', 'Notepad'),
-        ('cat', 'cat > filename'),
-    )
+    SAMTYKKE = models.TextChoices('Jeg samtykker til å motta markedsføring og kommunikasjon på e-post fra NTNU',
+                                'Jeg samtykker IKKE å motta markedsføring og kommunikasjon på e-post fra NTNU')
 
-    favorite_movie = models.CharField(
-        verbose_name="Fav Flick",
-        max_length=100,
-    )
-    favorite_editor = models.CharField(
-        verbose_name="Favorite Editor",
-        choices=FAVORITE_EDITOR,
-        blank=True,
-        max_length=5,
-    )
+    samtykke =  models.CharField(blank=True, choices=SAMTYKKE.choices, max_length=100)
