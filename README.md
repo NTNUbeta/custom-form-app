@@ -22,7 +22,7 @@
 
 `cd "$(tutor plugins printroot)" `
 
-`nano minplugin.yml ` den copy all cods from minplugin.yml and saved
+`nano minplugin.yml ` Then copy all cods from minplugin.yml and save
 
 `tutor plugins list `
 
