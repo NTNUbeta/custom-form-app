@@ -12,7 +12,8 @@ class ExtraInfo(models.Model):
     The form that wraps this model is in the forms.py file.
     """
     user = models.OneToOneField(USER_MODEL, null=True, on_delete=models.CASCADE)
-    SAMTYKKE = models.CharField('Jeg samtykker',
-                                'Jeg samtykker IKKE ',max_length=64)
+    SAMTYKKE = (('JA','Samtykker'),
+                ('NEI', 'Samtykker IKKE'),)
 
-    samtykke =  models.CharField(blank=True, choices=SAMTYKKE.choices, max_length=200)
+    samtykke =  models.CharField(blank=True, verbose_name="Jeg samtykker til å motta markedsføring og kommunikasjon på e-post fra NTNU",
+                                               choices=SAMTYKKE, max_length=64,)
