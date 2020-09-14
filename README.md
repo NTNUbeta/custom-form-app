@@ -11,8 +11,6 @@
 
 `pip3 install -e custom-form-app `
 
-`tutor images build openedx  `
-
 
 ### plugin activation:
 
@@ -30,6 +28,8 @@
 
 `tutor config save `
 
+`tutor images build openedx  `
+
 `tutor local quickstart `
 
 ### Debug:
@@ -40,4 +40,12 @@
 
 `./manage.py lms migrate `
 
-###     To be continued .....
+To delete and recreate migrations:
+
+`./manage.py lms migrate custom_reg_form zero `
+
+Than
+
+`./manage.py lms makemigrations `
+
+`./manage.py lms migrate`

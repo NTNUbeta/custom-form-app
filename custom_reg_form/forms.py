@@ -7,11 +7,8 @@ class ExtraInfoForm(ModelForm):
     """
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
-        self.fields['samtykke'].error_messages = {
-            "required": u"Samtykker du?.. Vennligst svar..",
-
-        }
+        self.fields['samtykke']
 
     class Meta(object):
         model = ExtraInfo
-        fields = ('samtykke')
+        fields = ('samtykke',)
