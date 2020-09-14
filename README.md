@@ -52,4 +52,5 @@ Than
 
 ![](src/samtykke.png)
 
+
 ![](src/samtykke_admin.png)

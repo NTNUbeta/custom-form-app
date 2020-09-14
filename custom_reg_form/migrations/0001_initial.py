@@ -16,8 +16,8 @@ class Migration(migrations.Migration):
             name='ExtraInfo',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('samtykke', models.CharField(blank=True, choices=[(b'JA',b'Samtykker'), (b'NEI', b'Samtykker IKKE'),],
-                       verbose_name=b'Vennligst velg ', max_length=60 )),
+                ('samtykke', models.CharField(blank=False, choices=[(b'JA',b'Samtykker'), (b'NEI', b'Samtykker IKKE'),],
+                       verbose_name=b'Jeg godtar NTNUs betingelser om marketsforing ', max_length=150 )),
                 ('user', models.OneToOneField(null=True, to=settings.AUTH_USER_MODEL,on_delete=models.CASCADE)),
             ],
         ),

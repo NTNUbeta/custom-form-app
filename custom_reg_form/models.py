@@ -11,6 +11,8 @@ class ExtraInfo(models.Model):
 
     user = models.OneToOneField(USER_MODEL, null=True, on_delete=models.CASCADE)
     SAMTYKKE = (('JA','Samtykker'),
-                ('NEI', 'Samtykker IKKE'),)
+                ('NEI','Samtykker IKKE'),)
 
-    samtykke =  models.CharField(blank=False, verbose_name='Vennligst velg ', choices=SAMTYKKE, max_length=60)
+    samtykke =  models.CharField(blank=False, 
+                       verbose_name='Jeg godtar NTNUs betingelser om marketsforing ',
+                         choices=SAMTYKKE, max_length=150)
