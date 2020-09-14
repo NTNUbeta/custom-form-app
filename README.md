@@ -49,3 +49,7 @@ Than
 `./manage.py lms makemigrations `
 
 `./manage.py lms migrate`
+
+![](src/samtykke.png)
+
+![](src/samtykke_admin.png)
