@@ -7,11 +7,11 @@ class ExtraInfoForm(ModelForm):
     """
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
-        self.fields['Jeg samtykker til motta markedsforing kommunikasjon epost fra NTNU']
+        self.fields['Jeg_samtykker_til_motta_markedsforing_kommunikasjon_epost_fra_NTNU']
         #self.fields['samtykke'].error_messages = {
             #"required": u"Vennligst velg",
            # "invalid": u"Den felt kan ikke vaare tom",}
 
     class Meta(object):
         model = ExtraInfo
-        fields = ('Jeg samtykker til motta markedsforing kommunikasjon epost fra NTNU ')
+        fields = ('Jeg_samtykker_til_motta_markedsforing_kommunikasjon_epost_fra_NTNU ')

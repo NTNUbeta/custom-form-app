@@ -10,7 +10,7 @@ USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 class ExtraInfo(models.Model):
 
     user = models.OneToOneField(USER_MODEL, null=True, on_delete=models.CASCADE)
-    Jeg samtykker til motta markedsforing kommunikasjon epost fra NTNU  = models.BooleanField(blank=True, null=True)
+    Jeg_samtykker_til_motta_ markedsforing_kommunikasjon_epost_fra_NTNU= models.BooleanField(blank=True, null=True)
     #SAMTYKKE = (('JA','Samtykker'),
                # ('NEI','Samtykker IKKE'),)
 
