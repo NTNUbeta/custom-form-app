@@ -1,5 +1,6 @@
 from .models import ExtraInfo
 from django.forms import ModelForm
+from django.utils.translation import gettext_lazy as _
 
 class ExtraInfoForm(ModelForm):
     """
@@ -7,11 +8,12 @@ class ExtraInfoForm(ModelForm):
     """
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
-        self.fields['Jeg_samtykker_til_motta_markedsforing_kommunikasjon_epost_fra_NTNU']
+        self.fields['samtykke']
         #self.fields['samtykke'].error_messages = {
             #"required": u"Vennligst velg",
            # "invalid": u"Den felt kan ikke vaare tom",}
 
     class Meta(object):
         model = ExtraInfo
-        fields = ('Jeg_samtykker_til_motta_markedsforing_kommunikasjon_epost_fra_NTNU ')
+        fields = ('samtykke',)
+        labels = {'samtykke': _('Andreas her du kan plasere text hva du vil'),}
