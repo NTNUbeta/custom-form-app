@@ -9,11 +9,10 @@ USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
 class ExtraInfo(models.Model):
 
+
     user = models.OneToOneField(USER_MODEL, null=True, on_delete=models.CASCADE)
     samtykke = models.BooleanField(default=True)
-    #SAMTYKKE = (('JA','Samtykker'),
-               # ('NEI','Samtykker IKKE'),)
-
-    #samtykke =  models.CharField(blank=False, 
-                     #  verbose_name='Jeg godtar NTNUs betingelser om marketsforing ',
-                        # choices=SAMTYKKE, max_length=150)
+    #baretest = models.TextField()
+    VALG = [('JA','Samtykker'),
+           (('NEI','Samtykker IKKE'),]
+    velge = models.CharField(blank=False,verbose_name='Jeg godtar NTNUs betingelser om marketsforing ', choices=VALG, max_length=64)
