@@ -12,7 +12,7 @@ class ExtraInfoForm(ModelForm):
         self.fields['velge'].error_messages = {
             "required": u"Vennligst velg",
             "invalid": u"Den felt kan ikke vaare tom",}
-        self.fields['samtykke']    
+        self.fields['samtykke'].required=True   
 
     class Meta(object):
         model = ExtraInfo
