@@ -9,14 +9,14 @@ class ExtraInfoForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
         #self.fields['samtykke']
-        self.fields['velge'].error_messages = {
-            "required": u"Vennligst velg",
-            "invalid": u"Den felt kan ikke vaare tom",}
+        #self.fields['velge'].error_messages = {
+            #"required": u"Vennligst velg",
+            #"invalid": u"Den felt kan ikke vaare tom",}
         self.fields['samtykke'].required=True   
 
     class Meta(object):
         model = ExtraInfo
-        fields = ('samtykke','velge',)
-        labels = {'samtykke': _('Andreas her du kan plasere text hva du vil'),}
+        fields = ('samtykke',)
+        labels = {'samtykke': _("Jeg samtykker til å motta markedsføring og kommunikasjon på e-post fra NTNU"),}
         help_texts = {'samtykke': _('Vennligst svar.'),}
         
