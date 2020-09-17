@@ -9,13 +9,14 @@ class ExtraInfoForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
         #self.fields['samtykke']
-        self.fields['samtykke'].error_messages = {
+        self.fields['velge'].error_messages = {
             "required": u"Vennligst velg",
             "invalid": u"Den felt kan ikke vaare tom",}
-        self.fields['velge']    
+        self.fields['samtykke']    
 
     class Meta(object):
         model = ExtraInfo
         fields = ('samtykke','velge',)
         labels = {'samtykke': _('Andreas her du kan plasere text hva du vil'),}
         help_texts = {'samtykke': _('Vennligst svar.'),}
+        
