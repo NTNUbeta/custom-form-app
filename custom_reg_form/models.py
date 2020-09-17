@@ -28,6 +28,9 @@ class ExtraInfo(models.Model):
         choices=EMPLOYMENT_STATUS_CHOICES
     )
     email = models.EmailField(max_length=100,verbose_name="Please confirm your e-mail")
+
+    def __str__(self):
+        return self.user
     # user = models.BooleanField(USER_MODEL,default=True)
     # EMAIL_GDPR_CONSENT = (
     # )
