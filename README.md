@@ -41,6 +41,7 @@
 `./manage.py lms migrate `
 
 To delete and recreate migrations:
+(This step is important if you changed models !)
 
 `./manage.py lms migrate custom_reg_form zero `
 
@@ -50,7 +51,7 @@ Than
 
 `./manage.py lms migrate`
 
-![](src/samtykke.png)
+![](src/samtykke3.png)
 
 
-![](src/samtykke_admin.png)
+![](src/samtykke_admin3.png)
