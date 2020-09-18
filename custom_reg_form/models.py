@@ -10,8 +10,9 @@ USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
 
 class ExtraInfo(models.Model):
-    user = models.OneToOneField(USER_MODEL, null=True, related_name='++ExtraInfo.user++', on_delete=models.CASCADE)
-    email = models.OneToOneField(USER_MODEL,null=True, related_name='++ExtraInfo.email++',related_query_name='User.email', on_delete=models.CASCADE)
+    user = models.OneToOneField(USER_MODEL, null=True, related_name='user+', on_delete=models.CASCADE)
+    email = models.OneToOneField(USER_MODEL, null=True, related_name='email+', on_delete=models.CASCADE)
+    
     samtykke = models.BooleanField(default=True)
     EMPLOYMENT_STATUS_CHOICES = (
         ('efw', ugettext_noop('Employed for wages')),
@@ -33,7 +34,9 @@ class ExtraInfo(models.Model):
     #email = models.EmailField(max_length=100,verbose_name="Please confirm your email")
 
     def __str__(self):
-        return str(self.user)
+        result = '{0.user} {0.email}'
+        return result.format(self)
+
     # user = models.BooleanField(USER_MODEL,default=True)
     # EMAIL_GDPR_CONSENT = (
     # )

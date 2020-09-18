@@ -31,9 +31,9 @@ class Migration(migrations.Migration):
                         (b'other', ugettext_noop(b'Other')),]
                 )),
                 #('email', models.EmailField(max_length=100,verbose_name=b"Please confirm your e-mail")),
-                ('email', models.OneToOneField(null=True, to=settings.AUTH_USER_MODEL,on_delete=models.CASCADE)),
+                ('email', models.OneToOneField(null=True, to=settings.AUTH_USER_MODEL,related_name='email+',on_delete=models.CASCADE)),
                                 
-                ('user', models.OneToOneField(null=True, to=settings.AUTH_USER_MODEL,on_delete=models.CASCADE)),
+                ('user', models.OneToOneField(null=True, to=settings.AUTH_USER_MODEL, related_name='user+', on_delete=models.CASCADE)),
             ],
         ),
     ]
