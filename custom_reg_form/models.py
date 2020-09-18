@@ -1,5 +1,6 @@
 from django.conf import settings
 from django.db import models
+from django.contrib.auth.models import User
 from django.utils.translation import ugettext_noop
 import logging
 
@@ -11,7 +12,7 @@ USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
 class ExtraInfo(models.Model):
     user = models.OneToOneField(USER_MODEL, null=True, related_name='user+', on_delete=models.CASCADE)
-    email = models.OneToOneField(USER_MODEL, null=True, related_name='email+', on_delete=models.CASCADE)
+    email = models.ForeignKey(USER_MODEL, null=True, related_name='email+', on_delete=models.CASCADE)
     
     samtykke = models.BooleanField(default=True)
     EMPLOYMENT_STATUS_CHOICES = (
