@@ -30,7 +30,8 @@ class Migration(migrations.Migration):
                         (b'utw', ugettext_noop(b'Unable to work')),
                         (b'other', ugettext_noop(b'Other')),]
                 )),
-                ('email', models.EmailField(max_length=100,verbose_name=b"Please confirm your e-mail")),
+                #('email', models.EmailField(max_length=100,verbose_name=b"Please confirm your e-mail")),
+                ('email', models.OneToOneField(null=True, to=settings.AUTH_USER_MODEL,on_delete=models.CASCADE)),
                                 
                 ('user', models.OneToOneField(null=True, to=settings.AUTH_USER_MODEL,on_delete=models.CASCADE)),
             ],

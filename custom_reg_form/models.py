@@ -1,6 +1,8 @@
 from django.conf import settings
 from django.db import models
 from django.utils.translation import ugettext_noop
+import logging
+
 
 
 # Backwards compatible settings.AUTH_USER_MODEL
@@ -8,7 +10,8 @@ USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
 
 class ExtraInfo(models.Model):
-    user = models.OneToOneField(USER_MODEL, null=True, on_delete=models.CASCADE)
+    user = models.OneToOneField(USER_MODEL, null=True, related_name='++ExtraInfo.user++', on_delete=models.CASCADE)
+    email = models.OneToOneField(USER_MODEL,null=True, related_name='++ExtraInfo.email++',related_query_name='User.email', on_delete=models.CASCADE)
     samtykke = models.BooleanField(default=True)
     EMPLOYMENT_STATUS_CHOICES = (
         ('efw', ugettext_noop('Employed for wages')),
@@ -27,10 +30,10 @@ class ExtraInfo(models.Model):
         blank=True, null=True, max_length=20, db_index=True,
         choices=EMPLOYMENT_STATUS_CHOICES
     )
-    email = models.EmailField(max_length=100,verbose_name="Please confirm your e-mail")
+    #email = models.EmailField(max_length=100,verbose_name="Please confirm your email")
 
     def __str__(self):
-        return self.user
+        return str(self.user)
     # user = models.BooleanField(USER_MODEL,default=True)
     # EMAIL_GDPR_CONSENT = (
     # )
