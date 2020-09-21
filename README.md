@@ -51,7 +51,7 @@ Than
 
 `./manage.py lms migrate`
 
-![](src/samtykke3.png)
+![](src/form.png)
 
 
-![](src/samtykke_admin3.png)
+![](src/form_admin.png)
