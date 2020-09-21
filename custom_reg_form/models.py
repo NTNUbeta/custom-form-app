@@ -12,7 +12,7 @@ USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
 class ExtraInfo(models.Model):
     user = models.OneToOneField(USER_MODEL, null=True, related_name='user+', on_delete=models.CASCADE)
-    email = models.ForeignKey(USER_MODEL, null=True, related_name='email+', on_delete=models.CASCADE)
+    email = models.CharField(null=True, max_length=200,verbose_name='Din kommunikasjons epost')
     
     samtykke = models.BooleanField(default=True)
     EMPLOYMENT_STATUS_CHOICES = (

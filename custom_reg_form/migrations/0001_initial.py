@@ -20,7 +20,7 @@ class Migration(migrations.Migration):
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('samtykke', models.BooleanField(default=True)),
                 ('employment_status', models.CharField(blank=True, choices=[('efw', 'Employed for wages'), ('selfemployed', 'Self-employed'), ('student', 'Student'), ('homemaker', 'Homemaker'), ('oowlfw', 'Out of work and looking for work'), ('oownclfw', 'Out of work but not currently looking for work'), ('military', 'Military'), ('retired', 'Retired'), ('utw', 'Unable to work'), ('other', 'Other')], db_index=True, max_length=20, null=True, verbose_name='Employment Status')),
-                ('email', models.ForeignKey(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='email+', to=settings.AUTH_USER_MODEL)),
+                ('email', models.CharField(null=True, max_length=200,verbose_name='Din kommunikasjons epost')),
                 ('user', models.OneToOneField(null=True, on_delete=django.db.models.deletion.CASCADE, related_name='user+', to=settings.AUTH_USER_MODEL)),
             ],
         ),

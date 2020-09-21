@@ -14,7 +14,7 @@ class ExtraInfoForm(ModelForm):
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)        
         self.fields['samtykke'].required=True
-        #self.fields['email']
+        self.fields['email'].required=True
         self.fields['employment_status'].error_messages = {
             "required": u"Please tell us your employment status",
             "invalid": u"Enter correct employment status",
@@ -22,7 +22,8 @@ class ExtraInfoForm(ModelForm):
 
     class Meta(object):
         model = ExtraInfo
-        fields = ('samtykke','employment_status',)
-        labels = {'samtykke': _("Jeg samtykker til å motta markedsføring og kommunikasjon på e-post fra NTNU"),}
+        fields = ('samtykke','email','employment_status',)
+        labels = {'samtykke': _("Jeg samtykker til å motta markedsføring og kommunikasjon på e-post fra NTNU"),
+                     'email': _("Din kommunikasjons epost"),}
         help_texts = {'samtykke': _('Vennligst svar.'),}
-        
+         
