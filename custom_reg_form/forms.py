@@ -7,11 +7,9 @@ class ExtraInfoForm(ModelForm):
     """
     def __init__(self, *args, **kwargs):
         super(ExtraInfoForm, self).__init__(*args, **kwargs)
-        self.fields['employment_status'].error_messages = {
-            "required": u"Please tell us your employment status",
-            "invalid": u"Enter correct employment status",
-            },
+        self.fields['email_gdpr_consent']
 
     class Meta(object):
         model = ExtraInfo
-        fields = ('employment_status','email_gdpr_consent',)
+        fields = ('employment_status','email_gdpr_consent', 'andreas')
+        labels = {'email_gdpr_consent':('Subscribe me to NTNU Beta')}

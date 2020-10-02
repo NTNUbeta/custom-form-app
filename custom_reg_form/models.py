@@ -11,7 +11,9 @@ class ExtraInfo(models.Model):
     This model contains two extra fields that will be saved when a user registers.
     The form that wraps this model is in the forms.py file.
     """
-    user = models.OneToOneField(USER_MODEL, null=True)
+    user = models.OneToOneField(USER_MODEL, null=True, on_delete=models.CASCADE)
+    email = models.OneToOneField(USER_MODEL, related_name='email+', null=True, on_delete=models.CASCADE)
+
     EMPLOYMENT_STATUS_CHOICES = (
         ('efw', ugettext_noop('Employed for wages')),
         ('selfemployed', ugettext_noop('Self-employed')),
@@ -29,11 +31,12 @@ class ExtraInfo(models.Model):
         blank=True, null=True, max_length=20, db_index=True,
         choices=EMPLOYMENT_STATUS_CHOICES
     )
-    user = models.BooleanField(USER_MODEL,default=True)
-    EMAIL_GDPR_CONSENT = (
-    )
+
     email_gdpr_consent = models.BooleanField(
+        verbose_name="Subscribe to NTNU Beta",
+        blank=True, db_index=True, default=True,
+    )
+    andreas = models.BooleanField(
         verbose_name="Subscribe me to the newsletter from NTNU Videre",
-        blank=True, db_index=True, default=False,
-        choices=EMAIL_GDPR_CONSENT
+        blank=True, db_index=True, default=None,
     )
